@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Walidify — Premium Digital Products</title>
+  <meta name="description" content="Discover premium AI prompts, PDF books, and digital resources.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="bg-video-wrap">
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="back.mp4" type="video/mp4">
+  </video>
+</div>
+
+<header id="top-bar">
+  <div class="container inner">
+    <div id="logo-wrap">
+      <img src="logo.png" alt="Walidify" onerror="this.style.display='none'">
+      <span class="brand">Walidify</span>
+    </div>
+
+    <div id="search-wrap">
+      <i class="fas fa-search" id="search-icon"></i>
+      <input type="text" id="search-input" placeholder="Search products...">
+    </div>
+
+    <div class="top-actions">
+      <button class="icon-btn" id="btn-theme" title="Toggle theme">
+        <i class="fas fa-sun" id="theme-icon"></i>
+      </button>
+      <button class="icon-btn" id="btn-cart" title="Cart">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="badge" id="cart-badge">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="page active" id="page-home">
+    <div class="container">
+      <div id="hero">
+        <h1 id="hero-title">Premium Digital Products</h1>
+        <p id="hero-sub">Discover AI prompts, PDF books, and exclusive digital resources.</p>
+      </div>
+
+      <div id="cat-pills"></div>
+
+      <div class="section-header">
+        <h2 class="gradient-text" id="featured-label">Featured</h2>
+        <span class="see-all" onclick="navigateTo('categories')">See all →</span>
+      </div>
+      <div id="products-grid">
+        <div class="product-card" style="pointer-events:none">
+          <div class="card-img-wrap skeleton" style="aspect-ratio:4/3"></div>
+          <div class="card-body" style="gap:10px">
+            <div class="skeleton" style="height:14px;border-radius:6px;width:80%"></div>
+            <div class="skeleton" style="height:12px;border-radius:6px;width:50%"></div>
+            <div class="skeleton" style="height:36px;border-radius:8px"></div>
+          </div>
+        </div>
+        <div class="product-card" style="pointer-events:none">
+          <div class="card-img-wrap skeleton" style="aspect-ratio:4/3"></div>
+          <div class="card-body" style="gap:10px">
+            <div class="skeleton" style="height:14px;border-radius:6px;width:70%"></div>
+            <div class="skeleton" style="height:12px;border-radius:6px;width:45%"></div>
+            <div class="skeleton" style="height:36px;border-radius:8px"></div>
+          </div>
+        </div>
+        <div class="product-card" style="pointer-events:none">
+          <div class="card-img-wrap skeleton" style="aspect-ratio:4/3"></div>
+          <div class="card-body" style="gap:10px">
+            <div class="skeleton" style="height:14px;border-radius:6px;width:85%"></div>
+            <div class="skeleton" style="height:12px;border-radius:6px;width:55%"></div>
+            <div class="skeleton" style="height:36px;border-radius:8px"></div>
+          </div>
+        </div>
+        <div class="product-card" style="pointer-events:none">
+          <div class="card-img-wrap skeleton" style="aspect-ratio:4/3"></div>
+          <div class="card-body" style="gap:10px">
+            <div class="skeleton" style="height:14px;border-radius:6px;width:60%"></div>
+            <div class="skeleton" style="height:12px;border-radius:6px;width:40%"></div>
+            <div class="skeleton" style="height:36px;border-radius:8px"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="social-bar">
+        <a href="https://www.facebook.com/share/1LCn5Ms89A/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-btn fb" title="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/walidify?igsh=a242NGJsNmJqZGhk&utm_source=qr" target="_blank" rel="noopener" class="social-btn ig" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=213557375355" target="_blank" rel="noopener" class="social-btn wa" title="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+
+      <div style="text-align:center;padding-bottom:12px">
+        <a href="admin.html" class="admin-link"><i class="fas fa-lock"></i> Admin Dashboard</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="page-categories">
+    <div class="container">
+      <div class="page-header">
+        <h1>Categories</h1>
+        <p>Browse by product type</p>
+      </div>
+      <div id="cat-grid"></div>
+    </div>
+  </section>
+
+  <section class="page" id="page-favorites">
+    <div class="container">
+      <div class="page-header">
+        <h1>My Favorites</h1>
+        <p>Products you've saved</p>
+      </div>
+      <div id="fav-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px"></div>
+    </div>
+  </section>
+
+  <section class="page" id="page-cart">
+    <div class="container" style="padding-top:40px;text-align:center">
+      <i class="fas fa-shopping-bag" style="font-size:3rem;color:var(--text-dim);margin-bottom:16px;display:block"></i>
+      <p style="color:var(--text-muted);margin-bottom:20px">View and manage your cart</p>
+      <button class="btn btn-primary" onclick="openCartModal()"><i class="fas fa-shopping-bag"></i> Open Cart</button>
+    </div>
+  </section>
+
+  <section class="page" id="page-settings">
+    <div class="container">
+      <div class="page-header">
+        <h1>Settings</h1>
+        <p>Customize your experience</p>
+      </div>
+
+      <div class="settings-section">
+        <h3>Appearance</h3>
+        <div class="setting-row">
+          <div class="setting-row-label">
+            <strong>Dark Mode</strong>
+            <span>Toggle between dark and light theme</span>
+          </div>
+          <label class="toggle">
+            <input type="checkbox" id="theme-toggle-setting" checked>
+            <div class="toggle-track"></div>
+            <div class="toggle-thumb"></div>
+          </label>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h3>Language</h3>
+        <div class="setting-row">
+          <div class="setting-row-label">
+            <strong>Display Language</strong>
+            <span>Choose your preferred language</span>
+          </div>
+          <div class="lang-btns">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ar">عربي</button>
+            <button class="lang-btn" data-lang="fr">FR</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h3>About</h3>
+        <div class="setting-row">
+          <div class="setting-row-label">
+            <strong>Walidify</strong>
+            <span>Premium Digital Products Store</span>
+          </div>
+          <span style="font-size:0.8rem;color:var(--text-dim)">v1.0</span>
+        </div>
+        <div class="setting-row">
+          <div class="setting-row-label">
+            <strong>Admin Panel</strong>
+            <span>Manage products & orders</span>
+          </div>
+          <a href="admin.html" class="btn btn-outline" style="font-size:0.8rem;padding:7px 14px">
+            <i class="fas fa-lock"></i> Open
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<nav id="bottom-nav">
+  <button class="nav-item active" data-page="home">
+    <i class="fas fa-home"></i>
+    <span class="nav-label">Home</span>
+  </button>
+  <button class="nav-item" data-page="categories">
+    <i class="fas fa-grid-2"></i>
+    <span class="nav-label">Categories</span>
+  </button>
+  <button class="nav-item" data-page="favorites">
+    <i class="far fa-heart"></i>
+    <span class="nav-label">Favorites</span>
+  </button>
+  <button class="nav-item" data-page="cart">
+    <i class="fas fa-shopping-bag"></i>
+    <span class="nav-label" id="cart-nav-badge">Cart</span>
+  </button>
+  <button class="nav-item" data-page="settings">
+    <i class="fas fa-sliders"></i>
+    <span class="nav-label">Settings</span>
+  </button>
+</nav>
+
+<div class="modal-overlay" id="product-modal">
+  <div class="modal-box">
+    <button class="modal-close" data-close="product-modal"><i class="fas fa-times"></i></button>
+    <div id="pm-body"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="order-modal">
+  <div class="modal-box" style="padding:28px 26px 26px;max-width:480px">
+    <button class="modal-close" data-close="order-modal"><i class="fas fa-times"></i></button>
+    <div id="order-box"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="cart-modal">
+  <div class="modal-box" style="padding:24px;max-width:520px">
+    <button class="modal-close" data-close="cart-modal"><i class="fas fa-times"></i></button>
+    <div class="modal-title" style="margin-bottom:18px">🛒 Your Cart</div>
+    <div id="cart-items-wrap" class="cart-items"></div>
+    <div class="cart-total-row">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-val" id="cart-total-val">0.00 $</span>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:4px">
+      <button class="btn btn-outline" style="flex:1;justify-content:center" data-close="cart-modal">Continue Shopping</button>
+      <button class="btn btn-primary" id="btn-cart-order" style="flex:1;justify-content:center"><i class="fas fa-bolt"></i> Order Now</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast-wrap"></div>
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>
