@@ -278,8 +278,8 @@ function productCardHTML(p) {
 }
 
 function formatPrice(val) {
-  if (!val && val !== 0) return '';
-  return `${Number(val).toFixed(0)} DA`;
+  if (val === undefined || val === null) return '';
+  return `${val} $`; // أو يمكن كتابتها `$` + val حسب التنسيق الذي تفضله
 }
 
 function openProductModal(pid) {
