@@ -374,16 +374,18 @@ function openProductModal(pid) {
 let deepLinkHandled = false; // للتأكد من تشغيلها مرة واحدة فقط عند فتح الموقع أول مرة
 
 function handleDeepLink() {
-  if (deepLinkHandled) return;
-  
   const urlParams = new URLSearchParams(window.location.search);
-  const productId = urlParams.get('p'); // البحث عن الـ Parameter "p"
+  const productId = urlParams.get('p'); // البحث عن معرف المنتج في الرابط
   
   if (productId) {
     const productExists = state.products.find(x => x.id === productId);
     if (productExists) {
+      // 1. فتح نافذة المنتج فوراً للزائر الآتي من الرابط
       openProductModal(productId);
-      deepLinkHandled = true;
+      
+      // 2. تنظيف شريط الرابط وحذف "?p=..." فوراً ليصبح الرابط رئيسياً ونقياً
+      const cleanUrl = window.location.origin + window.location.pathname;
+      window.history.replaceState({}, document.title, cleanUrl);
     }
   }
 }
